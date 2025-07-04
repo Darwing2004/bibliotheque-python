@@ -4,17 +4,12 @@ class Livre:
         titre,
         auteur,
         annee,
-        isbn,
     ):
         self.titre = titre
         self.auteur = auteur
         self.annee = annee
-        self.ISBN = isbn
-        self.disponible = True
+        self.emprunte = False
 
-    def afficher(self):
-        print(f"Titre: {self.titre}")
-        print(f"Auteur: {self.auteur}")
-        print(f"Année: {self.annee}")
-        print(f"ISBN: {self.ISBN}")
-        print(f"Disponible: {'Oui' if self.disponible else 'Non'}")
+    def __str__(self):
+        statut = "emprunte" if self.emprunte else "disponible"
+        return f"{self.titre}, {self.auteur} ({self.annee})"
